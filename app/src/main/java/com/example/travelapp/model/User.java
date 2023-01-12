@@ -12,6 +12,8 @@ public class User {
         this.img = img;
     }
 
+    public User() {}
+
     public String getName() {
         return name;
     }
