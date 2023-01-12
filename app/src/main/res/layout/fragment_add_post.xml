@@ -19,13 +19,34 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/avatarImg"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="8dp"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/avatar" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/avatarImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/avatar" />
+
+                <ImageButton
+                    android:id="@+id/galleryButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|left"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_baseline_image_search_24" />
+
+                <ImageButton
+                    android:id="@+id/cameraButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_baseline_photo_camera_24" />
+            </FrameLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
