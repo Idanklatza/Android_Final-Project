@@ -7,119 +7,168 @@
     tools:context=".AddPostFragment">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <Space
+                android:layout_width="250dp"
+                android:layout_height="20dp" />
 
-                <ImageView
-                    android:id="@+id/avatarImg"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="8dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/avatar" />
-
-                <ImageButton
-                    android:id="@+id/galleryButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|left"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_baseline_image_search_24" />
-
-                <ImageButton
-                    android:id="@+id/cameraButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|right"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_baseline_photo_camera_24" />
-            </FrameLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                app:startIconDrawable="@drawable/ic_baseline_edit_calendar_24">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addpost_id_input_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Post ID" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                app:startIconDrawable="@drawable/ic_baseline_edit_calendar_24">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addpost_description_input_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Post Description" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                app:startIconDrawable="@drawable/ic_baseline_edit_calendar_24">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addpost_img_input_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Post Img" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="70sp"
                 android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/postTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8sp"
+                    android:text="Post name:"
+                    android:textSize="25sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/styleNameEt"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="238dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:startIconDrawable="@drawable/ic_baseline_mode_edit_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Name Post"
+                        android:required="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="250dp"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="221dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4sp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8sp"
+                        android:text="Description:"
+                        android:textSize="21sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="201dp"
+                        android:layout_height="253dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        app:startIconDrawable="@drawable/ic_baseline_mode_edit_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/descriptionEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Description" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300sp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/avatarImg"
+                        android:layout_width="164dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:isScrollContainer="false"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/nophoto" />
+
+                    <ImageButton
+                        android:id="@+id/gallerybutton"
+                        android:layout_width="69dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="bottom|left"
+                        android:src="@drawable/ic_baseline_add_box_24" />
+
+                    <ImageButton
+                        android:id="@+id/camerabutton"
+                        android:layout_width="70dp"
+                        android:layout_height="59dp"
+                        android:layout_gravity="bottom|right"
+                        android:layout_weight="1"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_baseline_add_a_photo_" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180sp"
+                android:orientation="vertical"/>
+
+            <Space
+                android:layout_width="250dp"
+                android:layout_height="35dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/saveBtn"
-                    android:layout_width="0dp"
+                    android:layout_width="195dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginLeft="110sp"
                     android:layout_weight="1"
-                    android:text="SAVE" />
+                    android:backgroundTint="@color/SteelBlue"
+                    android:text="Save" />
 
                 <Button
                     android:id="@+id/cancellBtn"
-                    android:layout_width="0dp"
+                    android:layout_width="195dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginLeft="110sp"
                     android:layout_weight="1"
-                    android:text="CANCEL" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    android:backgroundTint="@color/SteelBlue"
+                    android:text="@android:string/cancel" />
+            </LinearLayout>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

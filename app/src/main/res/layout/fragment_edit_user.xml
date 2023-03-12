@@ -3,128 +3,138 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EditUserFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="Name:"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edituser_avatar_img" />
-
-    <ImageView
-        android:id="@+id/edituser_avatar_img"
-        android:layout_width="169dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="20dp"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile" />
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/edituser_name_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="Password:"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="35dp" />
 
-    <EditText
-        android:id="@+id/edituser_id_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView4" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="Email:"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                <ImageView
+                    android:id="@+id/avatarImg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="254dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/user" />
 
-    <EditText
-        android:id="@+id/edituser_phone_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+                <ImageButton
+                    android:id="@+id/camerabutton"
+                    android:layout_width="62dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginRight="16sp"
+                    app:srcCompat="@drawable/ic_baseline_add_a_photo_" />
 
-    <Button
-        android:id="@+id/edituser_delete_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="30dp"
-        android:text="DELETE"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/edituser_save_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/edituser_cancel_btn" />
+                <ImageButton
+                    android:id="@+id/gallerybutton"
+                    android:layout_width="62dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="bottom|left"
+                    android:layout_marginLeft="16sp"
+                    android:src="@drawable/ic_baseline_add_box_24" />
 
-    <Button
-        android:id="@+id/edituser_cancel_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="30dp"
-        android:text="CANCEL"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/edituser_delete_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+            </FrameLayout>
 
-    <Button
-        android:id="@+id/edituser_save_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="30dp"
-        android:text="SAVE"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/edituser_delete_btn" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="35dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8sp"
+                android:layout_marginRight="8sp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/blabla"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/first_name"
+                        android:layout_width="189dp"
+                        android:layout_height="wrap_content"
+                        android:hint="First Name" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="193dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4sp">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4sp"
+                        android:hint="Last Name" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8sp"
+                android:layout_marginRight="8sp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="399dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16sp"
+                    android:enabled="false"
+                    android:hint="Email" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="35dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/saveBtnUser"
+                    android:layout_width="195dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="110sp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/SteelBlue"
+                    android:text="Save" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

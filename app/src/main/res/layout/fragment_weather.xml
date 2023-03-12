@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <android.widget.LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="20dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".WeatherFragment"
+    android:id="@+id/weather_fragment_container"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Weather"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/et"
+        android:hint="Enter your City name"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/btn"
+        android:text="Get Weather"
+        android:onClick="getweather"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/SteelBlue"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:hint="Temperature will we displayed here"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/fragment_weather_tmp_img"
+        android:layout_width="95dp"
+        android:layout_height="83dp"
+        android:src="@drawable/ic_clear_day" />
+
+</android.widget.LinearLayout>

@@ -1,65 +1,172 @@
 package com.example.travelapp;
 
-
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link EditUserFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.travelapp.databinding.FragmentEditUserBinding;
+import com.example.travelapp.model.Model;
+import com.example.travelapp.model.User;
+import com.google.android.material.textfield.TextInputEditText;
+import com.squareup.picasso.Picasso;
+
+
 public class EditUserFragment extends Fragment {
+    FragmentEditUserBinding binding;
+    String firstName;
+    String lastName;
+    String email;
+    String avatarUrl;
+    Boolean isAvatarSelected = false;
+    ActivityResultLauncher<Void> cameraLauncher;
+    ActivityResultLauncher<String> galleryAppLauncher;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public EditUserFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment EditUserFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static EditUserFragment newInstance(String param1, String param2) {
-        EditUserFragment fragment = new EditUserFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        cameraLauncher = registerForActivityResult(new ActivityResultContracts.TakePicturePreview(),
+                new ActivityResultCallback<Bitmap>() {
+                    @Override
+                    public void onActivityResult(Bitmap result) {
+                        if (result != null) {
+                            binding.avatarImg2.setImageBitmap(result);
+                            isAvatarSelected = true;
+                        }
+                    }
+                });
+
+        galleryAppLauncher = registerForActivityResult(new
+                ActivityResultContracts.GetContent(), new
+                ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri result) {
+                        if (result != null) {
+                            binding.avatarImg2.setImageURI(result);
+                            isAvatarSelected = true;
+                        }
+                    }
+                });
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_user, container, false);
+        binding = FragmentEditUserBinding.inflate(inflater,container,false);
+        View view = binding.getRoot();
+
+        //set from argument fragment to Strings;
+        firstName = EditUserFragmentArgs.fromBundle(getArguments()).getFirstName();
+        lastName = EditUserFragmentArgs.fromBundle(getArguments()).getLastName();
+        email = EditUserFragmentArgs.fromBundle(getArguments()).getEmail();
+        avatarUrl = EditUserFragmentArgs.fromBundle(getArguments()).getAvatarUrl();
+
+        // set data user in the ui
+        if (firstName != null){
+            binding.firstName.setText(firstName);
+        }
+        if (lastName != null){
+            binding.lastName.setText(lastName);
+        }
+        if (email != null){
+            binding.email.setText(email);
+        }
+        if (avatarUrl != ""){
+            Picasso.get().load(avatarUrl).error(R.drawable.error).into(binding.avatarImg2);
+        }else{
+            binding.avatarImg2.setImageResource(R.drawable.user);
+        }
+
+        binding.saveBtnUser.setOnClickListener(view1 -> {
+
+            String firstName = binding.firstName.getText().toString();
+            String lastName = binding.lastName.getText().toString();
+            String email = binding.email.getText().toString();
+
+            if(!checkInput(firstName, lastName)) {
+                //create new user object
+                User us = new User(firstName, lastName, email, "");
+
+                if (isAvatarSelected || avatarUrl != "") {
+                    binding.avatarImg2.setDrawingCacheEnabled(true);
+                    binding.avatarImg2.buildDrawingCache();
+                    Bitmap bitmap = ((BitmapDrawable) binding.avatarImg2.getDrawable()).getBitmap();
+
+                    //save image in firebase
+                    Model.instance().uploadImage(email, bitmap, url -> {
+                        if (url != null) {
+                            us.setAvatarUrl(url);
+                        }
+
+                        // save user on firebase
+                        Model.instance().addUser(us, (unused) -> {
+                            homePage(binding.getRoot());  //back
+                        });
+                    });
+
+                } else { // if the user not up photo
+
+                    // save user on firebase
+                    Model.instance().addUser(us, (unused) -> {
+                        homePage(binding.getRoot()); //back
+                    });
+                }
+            }
+
+        });
+
+        binding.camerabutton.setOnClickListener(view1->{
+            cameraLauncher.launch(null);
+        });
+
+        binding.gallerybutton.setOnClickListener(view1->{
+            galleryAppLauncher.launch("image/*");
+        });
+
+        return view;
+    }
+
+    // check the field input
+    public boolean checkInput(String firstName, String lastName){
+        Boolean bool =false;
+
+        if(firstName.isEmpty()) {
+            TextInputEditText input = binding.firstName;
+            input.setError("This field cannot be empty");
+            bool=true;
+
+        }
+        if(lastName.isEmpty()) {
+            TextInputEditText input = binding.lastName;
+            input.setError("This field cannot be empty");
+            bool=true;
+
+        }
+
+        return bool;
+    }
+
+
+    public void homePage(View view) {
+        Navigation.findNavController(view).popBackStack();
     }
 }

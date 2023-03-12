@@ -2,14 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/postsListFragment"
-        android:icon="@android:drawable/btn_star"
-        android:title="List" />
+        android:id="@+id/PostsListFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
     <item
-        android:id="@+id/addPostFragment"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="Add" />
+        android:id="@+id/addPost"
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:title="New" />
     <item
-        android:icon="@android:drawable/checkbox_on_background"
-        android:title="About" />
+        android:id="@+id/StarsFragment"
+        android:icon="@drawable/ic_baseline_star_24"
+        android:title="Favorites" />
+    <item
+        android:id="@+id/Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="false"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile" />
+    <item
+        android:id="@+id/weather_fragment_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="false"
+        android:icon="@drawable/ic_baseline_wb_sunny_24"
+        android:title="Weather" />
+        />
 </menu>

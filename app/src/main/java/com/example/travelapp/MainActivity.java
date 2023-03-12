@@ -5,20 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-
+import com.example.travelapp.model.Model;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int REQUEST_READ_EXTERNAL_STORAGE = 1;
+    private static final int REQUEST_SELECT_PICTURE = 1;
     NavController navController;
+    NavHostFragment navHostFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Model.instance().isSignedIn(s-> {
+            if(s == Boolean.FALSE){
+                Intent i = new Intent(MainActivity.this, LoginFragment.class); // move to login activity page
+                startActivity(i);
+                finish();
+            }
+        });
 
         NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.main_navhost);
         navController = navHostFragment.getNavController();
@@ -27,11 +39,10 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.main_bottomNavigationView);
         NavigationUI.setupWithNavController(navView,navController);
 
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     }
 
     int fragmentMenuId = 0;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
