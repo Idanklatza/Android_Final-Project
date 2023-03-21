@@ -62,8 +62,10 @@ public class WeatherFragment extends Fragment {
                     if (mydata != null) {
                         Weather weather = mydata.getWeather();
                         Double temp = weather.getTemp();
+                        Integer humidity = weather.getHumidity();
                         Integer temperature = (int) (temp - 273.15);
-                        tv.setText(String.valueOf(temperature) + "C");
+                        tv.setText("Temperature: " + String.valueOf(temperature) + "C\n");
+                        tv.append("Humidity: " + String.valueOf(humidity) + "%");
                         // replace the image according to the temperature of that city
                         if(Integer.valueOf(temperature)>25) {
                             Picasso.get().load("android.resource://com.example.travelapp/" + R.drawable.ic_clear_day).into(img);
