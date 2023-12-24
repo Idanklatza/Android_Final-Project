@@ -27,6 +27,7 @@
 - If a user has logged in, the next time the app is opened it will automatically recognize them.
 - A user can log out of the application.
 
-![android_presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/0b79f7cc-6ebe-4ba4-8688-1df6fe7f444a)
+![android-app-presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/9654fbea-f2fa-4e50-8e98-57da5b20dc0a)
+
 
  
