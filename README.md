@@ -30,4 +30,4 @@
 <br>
 
 <p align = "center">
-    <img src = https://github.com/Idanklatza/Android_Final-Project/blob/master/presentation-app.gif width="500" height="450" />
+ 
