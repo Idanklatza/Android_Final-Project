@@ -25,9 +25,7 @@
 - The user can edit a shared travel. (change text or image)
 - The user will be able to edit his user information (profile picture, first name, last name).
 - If a user has logged in, the next time the app is opened it will automatically recognize them.
-- A user can log out of the application
-
-<br>
+- A user can log out of the application.
 
 ![app_presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/6d52e46a-63f8-47c2-8121-63536d54af37)
  
