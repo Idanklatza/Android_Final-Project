@@ -30,5 +30,5 @@
 <br>
 
 <p align = "center">
-![app_presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/ec0fc765-658c-49f0-96f7-a17f8ee61c1d)
+![app_presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/ec0fc765-658c-49f0-96f7-a17f8ee61c1d.gif)
  
