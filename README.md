@@ -29,6 +29,5 @@
 
 <br>
 
-<p align = "center">
-![app_presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/ec0fc765-658c-49f0-96f7-a17f8ee61c1d.gif)
+![app_presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/6d52e46a-63f8-47c2-8121-63536d54af37)
  
