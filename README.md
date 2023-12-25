@@ -28,8 +28,9 @@
 - A user can log out of the application.
 
 
-![video](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/579f81e7-f96e-4a99-95aa-8e948449fdd0)
+![android-prj](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/579f81e7-f96e-4a99-95aa-8e948449fdd0)
 
+<img src = https://github.com/Idanklatza/Android_Final-Project/assets/93584464/579f81e7-f96e-4a99-95aa-8e948449fdd0 />
 
 ![android-app-presentation](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/9654fbea-f2fa-4e50-8e98-57da5b20dc0a)
 
