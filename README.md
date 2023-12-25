@@ -28,7 +28,7 @@
 - A user can log out of the application.
 
 
-![android-prj](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/579f81e7-f96e-4a99-95aa-8e948449fdd0)
+[![android-prj](https://github.com/Idanklatza/Android_Final-Project/assets/93584464/579f81e7-f96e-4a99-95aa-8e948449fdd0)]
 
 <img src = https://github.com/Idanklatza/Android_Final-Project/assets/93584464/579f81e7-f96e-4a99-95aa-8e948449fdd0 />
 
